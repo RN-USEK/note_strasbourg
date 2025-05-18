@@ -1,0 +1,23 @@
+{
+    "name": "PHP SQLite App",
+    "image": "mcr.microsoft.com/devcontainers/php:8.2", // Or your preferred PHP version
+    "features": {
+        "ghcr.io/devcontainers/features/sqlite:1": {} // Installs SQLite
+    },
+    "postCreateCommand": "sudo apt-get update && sudo apt-get install -y php-sqlite3 && sudo docker-php-ext-enable sqlite3",
+    "forwardPorts": [8000], // Forward a port to access the app
+    "portsAttributes": {
+        "8000": {
+            "label": "Application",
+            "onAutoForward": "openPreview"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "bmewburn.vscode-intelephense-client", // PHP IntelliSense
+                "xdebug.php-debug" // PHP Debugging (optional)
+            ]
+        }
+    }
+}
